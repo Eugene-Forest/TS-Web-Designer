@@ -1,11 +1,12 @@
-
 {
-    "compilerOptions": {
+  "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "es6",
     "target": "es6",
     "jsx": "react",
-    "allowJs": true
-    }
+    "allowJs": true,
+    //开发下的推荐配置
+    "sourceMap": true
+  }
 }
