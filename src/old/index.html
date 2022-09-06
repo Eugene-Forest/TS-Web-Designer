@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>通过画布实现可拖拽的图形</title>
+</head>
+
+<body>
+<canvas height="600" id="myCanvas" style="border:1px solid #000000;" width="800">
+</canvas>
+<div style="float:right">
+    <div>
+        Graph <span id="graph"></span>
+        <div>
+            <p>Graph x:<span id="graph-x"></span></p>
+            <p>Graph y:<span id="graph-y"></span></p>
+            <p>Graph isSelected:<span id="graph_selected"></span></p>
+        </div>
+    </div>
+    <div>Mouse <span id="mouse"></span>
+        <div>
+            <p>Mouse x:<span id="mouse_x"></span></p>
+            <p>Mouse y:<span id="mouse_y"></span></p>
+        </div>
+    </div>
+</div>
+<!--<script src="../../dist/bundle.js"></script>-->
+<!-- <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+</script> -->
+</body>
+
+</html>

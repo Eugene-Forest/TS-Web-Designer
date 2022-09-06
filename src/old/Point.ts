@@ -1,4 +1,7 @@
 
+/**
+ * 在平面直角坐标系中，一个点坐标类定义
+ */
 export class Point {
 
     private _x: number = 0;
@@ -28,4 +31,5 @@ export class Point {
     public set Y(v: number) {
         this._y = v;
     }
+
 }

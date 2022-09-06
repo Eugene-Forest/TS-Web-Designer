@@ -4,7 +4,9 @@ import { Point } from "./Point";
 
 export class Circle extends Graph {
 
-    //半径
+    /**
+     * 半径
+     */
     private _radius: number;
 
     constructor(x: number, y: number, r: number) {
@@ -30,7 +32,7 @@ export class Circle extends Graph {
 
 
     public getString(): string {
-        return "r:" + this.Radius + ";origin-x:" + this.getOriginPoint(0).X + ";originPoint-y:" + this.getOriginPoint(0).Y + ";point-x:" + this.getPoint(0).X + ";point-y:" + this.getPoint(0).Y + ";isSelected:" + this.isSelected;
+        return "r:" + this.Radius + ";origin-x:" + this.getOriginPoint(0).X + ";originPoint-y:" + this.getOriginPoint(0).Y + ";point-x:" + this.getPoint(0).X + ";point-y:" + this.getPoint(0).Y + ";isSelected:" + this.IsSelected;
     }
 
     //判断一个点时候存在于图形内
@@ -43,21 +45,25 @@ export class Circle extends Graph {
         return false;
     }
 
-    public draw(args: CanvasRenderingContext2D): void {
+    public draw(context: CanvasRenderingContext2D): void {
         let startAngle = 0; // 开始点
         let endAngle = Math.PI * 2; // 结束点
-
         // beginPath 起始一条路径，或重置当前路径
-        args.beginPath();
-        args.arc(this.Points[0].X, this.Points[0].Y, this.Radius, startAngle, endAngle, true);
+        context.beginPath();
+        if (this.IsSelected) {
+            context.strokeStyle = "red";
+        }
+        context.arc(this.Points[0].X, this.Points[0].Y, this.Radius, startAngle, endAngle, true);
         // stroke 绘制已定义的路径
-        args.stroke();
+        context.stroke();
+        //reset
+        context.strokeStyle = "black";
     }
 
     public calculateGraphEndPoint(myMouse: Mouse): void {
         //计算的出鼠标的偏移轨迹向量
-        let trackVQ_X = myMouse.point.X - myMouse.originPoint.X;
-        let trackVQ_Y = myMouse.point.Y - myMouse.originPoint.Y;
+        let trackVQ_X = myMouse.Point.X - myMouse.OriginPoint.X;
+        let trackVQ_Y = myMouse.Point.Y - myMouse.OriginPoint.Y;
         let trackVQ: Point = new Point(trackVQ_X, trackVQ_Y);
         //计算图形的点的偏移
         this.Points[0].X = this.OriginPoints[0].X + trackVQ.X;
